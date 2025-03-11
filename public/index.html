@@ -1,0 +1,154 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set viewport for responsive design -->
+  <title>Zeyu's Node.js Website</title> 
+  <!-- Preconnect and load Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnect with crossorigin -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Import Roboto font -->
+  <style> 
+    body {                                                                
+      margin: 0;                                                          /* Remove default margin */
+      font-family: 'Roboto', sans-serif;                                  /* Use Roboto font */
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);  /* Set gradient background */
+      display: flex;                                                      /* Enable flexbox layout */
+      flex-direction: column;                                             /* Arrange children in column */
+      align-items: center;                                                /* Center children horizontally */
+      justify-content: center;                                            /* Center children vertically */
+      min-height: 100vh;                                                  /* Ensure full viewport height */
+      color: #333;                                                      /* Set default text color */
+      transition: background-color 0.5s ease, color 0.5s ease;            /* Smooth transition on theme change */
+    } 
+    header {
+      width: 100%;                                    /* Full width header */
+      padding: 20px;                                  /* Add padding */
+      background-color: rgba(255, 255, 255, 0.8);   /* Semi-transparent white background */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);     /* Subtle shadow */
+      position: fixed;                                 /* Fix header at top */
+      top: 0;                                          /* Set top position */
+      left: 0;                                         /* Set left position */
+      z-index: 1000;                                   /* Ensure header is on top */
+    }
+    nav { 
+      display: flex;                                  /* Use flexbox for navigation */
+      justify-content: center;                        /* Center navigation items */
+    } 
+    nav a { 
+      margin: 0 15px;           /* Horizontal spacing */
+      text-decoration: none;    /* Remove underline */
+      font-weight: bold;        /* Bold text */
+      color: #333;            /* Link text color */
+    } 
+    .hero { 
+      text-align: center;       /* Center align text */
+      padding: 100px 20px 20px; /* Extra padding at top for header space */
+    } 
+    .hero h1 { 
+      font-size: 3em;                                 /* Large font size */
+      margin-bottom: 20px;                            /* Space below heading */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);  /* Text shadow effect */
+    } 
+    .hero p { 
+      font-size: 1.2em;     /* Increase font size */
+      margin-bottom: 30px;  /* Space below paragraph */
+    } 
+    .btn { 
+      padding: 15px 30px;                     /* Button padding */
+      font-size: 1em;                         /* Button text size */
+      color: #fff;                          /* Button text color */
+      background-color: #333;               /* Button background color */
+      border: none;                           /* Remove border */
+      border-radius: 5px;                     /* Rounded corners */
+      cursor: pointer;                        /* Pointer cursor on hover */
+      transition: background-color 0.3s ease; /* Transition effect on hover */
+    } 
+    .btn:hover { 
+      background-color: #555; /* Darken button on hover */
+    } 
+    footer { 
+      margin-top: 50px;                             /* Space above footer */
+      padding: 20px;                                /* Footer padding */
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      width: 100%;                                  /* Full width footer */
+      text-align: center;                           /* Center footer text */
+      position: fixed;                              /* Fix footer at bottom */
+      bottom: 0;                                    /* Position at bottom */
+      left: 0;                                      /* Align to left */
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow on top */
+    } 
+  </style>
+</head> 
+<body> 
+  <header> 
+    <nav> 
+      <a href="#home">Home</a>        <!-- Navigation link to Home section -->
+      <a href="#about">About</a>      <!-- Navigation link to About section -->
+      <a href="#contact">Contact</a>  <!-- Navigation link to Contact section -->
+    </nav> 
+  </header> 
+  <div class="hero" id="home"> 
+    <h1>Welcome to Zeyu's Beautiful Node.js Website</h1> 
+    <p>This website is built with Node.js, Express, and enhanced HTML/CSS for a stunning look.</p> 
+    <button class="btn" id="themeToggle">Toggle Dark Mode</button> <!-- Button to toggle dark mode -->
+  </div> 
+  <section id="about"> 
+    <div style="padding: 50px 20px; text-align: center;"> 
+      <h2>About Us</h2> 
+      <p>I create a beautiful webpage using modern web technologies.</p> 
+    </div> 
+  </section> 
+  <section id="contact"> 
+    <div style="padding: 50px 20px; text-align: center;"> 
+      <h2>Contact Me</h2> 
+      <p>Email: info@zeyu.com</p> 
+    </div> 
+  </section> 
+  <footer> 
+    <p>&copy; My Node.js Website. All rights reserved.</p> 
+  </footer>
+  <script>
+    // Wait for the DOM content to be fully loaded before executing the script
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the dark mode toggle button element by its ID
+      const themeToggleBtn = document.getElementById('themeToggle'); // Retrieve the toggle button
+      
+      // Add a click event listener to the toggle button
+      themeToggleBtn.addEventListener('click', function() {
+        // Toggle the "dark-mode" class on the body element to switch themes
+        document.body.classList.toggle('dark-mode'); // Toggle dark mode class
+        // Update the button text based on whether dark mode is active
+        if (document.body.classList.contains('dark-mode')) { // If dark mode is active
+          themeToggleBtn.textContent = 'Switch to Light Mode'; // Change button text
+        } else { // If dark mode is not active
+          themeToggleBtn.textContent = 'Toggle Dark Mode'; // Change button text
+        }
+      });
+
+      // Create a new <style> element to hold dark mode CSS rules
+      const darkModeStyle = document.createElement('style'); // Create style element
+      // Use template literals to assign multi-line CSS rules
+      darkModeStyle.textContent = `
+        .dark-mode { 
+          background: #222; /* Dark background for dark mode */
+          color: #eee; /* Light text color for dark mode */
+        }
+        .dark-mode header, .dark-mode footer {
+          background-color: rgba(0, 0, 0, 0.8); /* Darker header and footer */
+          color: #eee; /* Text color for header and footer in dark mode */
+        }
+        .dark-mode .btn {
+          background-color: #eee; /* Button background in dark mode */
+          color: #222; /* Button text color in dark mode */
+        }
+        .dark-mode .btn:hover {
+          background-color: #ccc; /* Button hover background in dark mode */
+        }
+      `;
+      // Append the dark mode styles to the document head so they take effect
+      document.head.appendChild(darkModeStyle); // Add style element to head
+    });
+  </script> 
+</body> 
+</html> 
