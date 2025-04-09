@@ -96,6 +96,6 @@ https://github.com/your-username/sit323-2025-prac6c
 To push, use:
 ```bash
 git add .
-git commit -m "Completed SIT323_6.2C: Interacting with Kubernetes using port-forward"
+git commit -m "SIT323_6.2"
 git push -u origin main
 ```
