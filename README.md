@@ -91,7 +91,7 @@ Include the following files in your repository:
 
 Push your repository to GitHub. The repository URL should follow the format:
 ```
-https://github.com/your-username/sit323-2025-prac6c
+https://github.com/zeyu-linn/sit323-2025-prac6c
 ```
 To push, use:
 ```bash
